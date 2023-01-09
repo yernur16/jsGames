@@ -5,9 +5,10 @@ const blockHeight = 20;
 const boardWidth = 560;
 const boardHeight = 300;
 const ballDiameter = 20;
-let timerId;
 let xDirection = -2;
 let yDirection = 2;
+
+let timerId;
 let score = 0;
 
 const userStart = [230, 10];
@@ -17,7 +18,6 @@ const ballStart = [270, 40];
 let ballCurrentPosition = ballStart;
 
 //create Block
-
 class Block {
   constructor(xAxis, yAxis) {
     this.bottomLeft = [xAxis, yAxis];
@@ -73,7 +73,7 @@ function drawUser() {
 //add user
 const user = document.createElement("div");
 user.classList.add("user");
-drawUser;
+drawUser();
 grid.appendChild(user);
 
 //move user
@@ -136,7 +136,7 @@ function checkForCollisions() {
       scoreDisplay.innerHTML = score;
 
       //check for win
-      if (block.length === 0) {
+      if (blocks.length === 0) {
         scoreDisplay.innerHTML = "You win!!!";
         clearInterval(timerId);
         document.removeEventListener("keydown", moveUser);
