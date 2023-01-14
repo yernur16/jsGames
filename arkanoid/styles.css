@@ -1,5 +1,13 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+
 .grid {
   position: absolute;
+  margin: 0 auto;
+  top: 40%;
+  left:40%;
   width: 560px;
   height: 300px;
   border: solid black 3px;
@@ -27,3 +35,4 @@
   border-radius: 100px;
   background-color: rgb(219, 12, 12);
 }
+

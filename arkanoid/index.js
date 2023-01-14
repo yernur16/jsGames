@@ -81,13 +81,13 @@ function moveUser(e) {
   switch (e.key) {
     case "ArrowLeft":
       if (currentPosition[0] > 0) {
-        currentPosition[0] -= 30;
+        currentPosition[0] -= 10;
         drawUser();
       }
       break;
     case "ArrowRight":
       if (currentPosition[0] < boardWidth - blockWidth) {
-        currentPosition[0] += 30;
+        currentPosition[0] += 10;
         drawUser();
       }
       break;
@@ -114,9 +114,12 @@ function moveBall() {
   ballCurrentPosition[1] += yDirection;
   drawBall();
   checkForCollisions();
-}
+  // requestAnimationFrame(moveBall)
+} 
 
-timerId = setInterval(moveBall, 10);
+// timerId = setInterval(moveBall, 1000/60);
+requestAnimationFrame(moveBall)
+// request = requestAnimationFrame(moveBall)
 
 //check for collisions
 function checkForCollisions() {
@@ -138,7 +141,8 @@ function checkForCollisions() {
       //check for win
       if (blocks.length === 0) {
         scoreDisplay.innerHTML = "You win!!!";
-        clearInterval(timerId);
+        // clearInterval(timerId);
+        // cancelAnimationFrame(moveBall)
         document.removeEventListener("keydown", moveUser);
       }
     }
