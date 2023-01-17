@@ -2,8 +2,8 @@ const grid = document.querySelector(".grid");
 const scoreDisplay = document.querySelector("#score");
 const blockWidth = 100;
 const blockHeight = 20;
-const boardWidth = 560;
-const boardHeight = 300;
+const boardWidth = 780;
+const boardHeight = 600;
 const ballDiameter = 20;
 let xDirection = -2;
 let yDirection = 2;
@@ -11,10 +11,10 @@ let yDirection = 2;
 let timerId;
 let score = 0;
 
-const userStart = [230, 10];
+const userStart = [300, 10];
 let currentPosition = userStart;
 
-const ballStart = [270, 40];
+const ballStart = [340, 50];
 let ballCurrentPosition = ballStart;
 
 //create Block
@@ -29,26 +29,29 @@ class Block {
 
 //all my blocks
 const blocks = [
-  new Block(10, 270),
-  new Block(120, 270),
-  new Block(230, 270),
-  new Block(340, 270),
-  new Block(450, 270),
-  new Block(10, 240),
-  new Block(120, 240),
-  new Block(230, 240),
-  new Block(340, 240),
-  new Block(450, 240),
-  new Block(10, 210),
-  new Block(120, 210),
-  new Block(230, 210),
-  new Block(340, 210),
-  new Block(450, 210),
-  new Block(10, 180),
-  new Block(120, 180),
-  new Block(230, 180),
-  new Block(340, 180),
-  new Block(450, 180),
+  // new Block(230, 500),
+  // new Block(340, 500),
+  // new Block(450, 500),
+  // new Block(120, 460),
+  // new Block(230, 460),
+  // new Block(340, 460),
+  // new Block(450, 460),
+  // new Block(560, 460),
+  new Block(10, 420),
+  // new Block(120, 420),
+  // new Block(230, 420),
+  // new Block(340, 420),
+  // new Block(450, 420),
+  // new Block(560, 420),
+  new Block(670, 420),
+  // new Block(120, 380),
+  // new Block(230, 380),
+  // new Block(340, 380),
+  // new Block(450, 380),
+  // new Block(560, 380),
+  // new Block(230, 340),
+  // new Block(340, 340),
+  // new Block(450, 340),
 ];
 
 //draw all my blocks function
@@ -114,11 +117,11 @@ function moveBall() {
   ballCurrentPosition[1] += yDirection;
   drawBall();
   checkForCollisions();
-  // requestAnimationFrame(moveBall)
-} 
+  // requestAnimationFrame(moveBall);
+}
 
-// timerId = setInterval(moveBall, 1000/60);
-requestAnimationFrame(moveBall)
+timerId = setInterval(moveBall, 10);
+// requestAnimationFrame(moveBall);
 // request = requestAnimationFrame(moveBall)
 
 //check for collisions
@@ -141,7 +144,7 @@ function checkForCollisions() {
       //check for win
       if (blocks.length === 0) {
         scoreDisplay.innerHTML = "You win!!!";
-        // clearInterval(timerId);
+        clearInterval(timerId);
         // cancelAnimationFrame(moveBall)
         document.removeEventListener("keydown", moveUser);
       }
